@@ -1,17 +1,16 @@
 // src/app/pokedex/pokedex.ts
 import { Component, inject, input, signal, computed, effect } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { PokemonService } from '../pokemon';
 import { PokemonDetail } from '../pokemon.model';
-
 const ID_MINIMO = 1;
 const ID_MAXIMO = 151; 
 
 @Component({
   selector: 'app-pokedex',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './pokedex.html',
-  styleUrl: './pokedex.css',
+  styleUrls: ['./pokedex.css', '../home/home.css'],
 })
 export class Pokedex {
   private pokemonService = inject(PokemonService);

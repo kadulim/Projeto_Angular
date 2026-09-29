@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface Usuario {
   id: number;
@@ -7,7 +8,7 @@ interface Usuario {
 }
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-form',
   styleUrls: ['./form.css', '../home/home.css'],
   templateUrl: './form.html',
