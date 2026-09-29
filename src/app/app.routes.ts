@@ -1,10 +1,7 @@
 import { Routes } from '@angular/router';
 import { Form } from './form/form';
 import { Home } from './home/home';
-<<<<<<< HEAD
-=======
 import { Pokedex } from './pokedex/pokedex';
->>>>>>> master
 
 export const routes: Routes = [
     {
@@ -14,16 +11,14 @@ export const routes: Routes = [
     {
         path: 'form',
         component: Form,
-<<<<<<< HEAD
+    },
+    {
+        path: 'pokedex',
+        redirectTo: 'pokedex/1',
+        pathMatch: 'full'
+    },
+    {
+        path: 'pokedex/:id',
+        component: Pokedex
     }
 ];
-=======
-    },
-    { path: 'pokedex', redirectTo: 'pokedex/1', pathMatch: 'full' },
-
-    { 
-        path: 'pokedex/:id', 
-        component: Pokedex 
-    },
-];
->>>>>>> master
