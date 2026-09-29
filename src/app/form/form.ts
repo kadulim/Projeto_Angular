@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
+=======
+import { RouterLink } from '@angular/router';
+>>>>>>> master
 
 interface Usuario {
   id: number;
@@ -7,7 +11,11 @@ interface Usuario {
 }
 
 @Component({
+<<<<<<< HEAD
   imports: [],
+=======
+  imports: [RouterLink],
+>>>>>>> master
   selector: 'app-form',
   styleUrls: ['./form.css', '../home/home.css'],
   templateUrl: './form.html',

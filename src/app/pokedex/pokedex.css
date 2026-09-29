@@ -1,0 +1,218 @@
+:host {
+  display: block;
+
+  --color-primary: #dd0031;
+  --color-primary-container: #ffb3bd;
+  --color-on-primary: #ffffff;
+
+  --color-secondary: #7b4dff;
+  --color-on-secondary: #ffffff;
+
+  --color-tertiary: #008f6b;
+  --color-on-tertiary: #ffffff;
+
+  --color-surface: #faf8ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f1f8;
+  --color-surface-container: #ece9f0;
+  --color-surface-container-high: #e3e0e7;
+  --color-surface-container-highest: #dcd9e0;
+
+  --color-on-surface: #1b1b1f;
+  --color-on-surface-variant: #66636a;
+
+  --color-outline-variant: #d0cdd4;
+
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 999px;
+}
+
+/* ================= LAYOUT DA PÁGINA ================= */
+.pokedex-page,
+.detalhe-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-lg) var(--space-md);
+  padding-bottom: 7rem;
+  background: var(--color-surface);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.pokedex-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: min(100%, 72rem);
+  margin: 0 auto var(--space-lg);
+}
+
+.pokedex-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.pokedex-subtitle {
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
+
+/* ================= ESTADOS (carregando / erro) ================= */
+.pokedex-status {
+  color: var(--color-on-surface-variant);
+  font-size: 1rem;
+  padding: var(--space-xl) 0;
+}
+
+.pokedex-status--erro {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ================= GRID DE CARDS ================= */
+.pokedex-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  width: min(100%, 72rem);
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .pokedex-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.pokemon-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  transition: 0.15s ease;
+}
+
+.pokemon-card:hover {
+  border-color: rgba(221, 0, 49, 0.3);
+  box-shadow: 0 4px 12px rgba(221, 0, 49, 0.08);
+}
+
+.pokemon-card__name {
+  color: var(--color-on-surface);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* ================= CARD DE DETALHE ================= */
+.detalhe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  width: min(100%, 24rem);
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.detalhe-sprite {
+  width: 8rem;
+  height: 8rem;
+  image-rendering: pixelated;
+}
+
+.detalhe-nome {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.detalhe-tipos {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.tipo-badge {
+  padding: 0.25rem var(--space-sm);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-container);
+  color: var(--color-on-surface);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.detalhe-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--color-on-surface-variant);
+}
+
+.botao-voltar {
+  margin-top: var(--space-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ================= NAVEGAÇÃO POR SETAS ================= */
+.navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.seta-botao {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.seta-botao:hover:not(:disabled) {
+  background: #b8002a;
+}
+
+.seta-botao:disabled {
+  background: var(--color-surface-container-high);
+  color: var(--color-on-surface-variant);
+  cursor: not-allowed;
+}
+
+.navegacao__contador {
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  min-width: 3rem;
+  text-align: center;
+}

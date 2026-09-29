@@ -1,0 +1,57 @@
+<main class="page">
+  <header class="app-header">
+    <div class="app-header__inner">
+
+      <div class="app-header__top">
+        <div class="app-header__brand">
+          <div class="app-header__logo">A</div>
+
+          <div class="app-header__titles">
+            <span class="app-header__eyebrow">Angular</span>
+            <span class="app-header__title">Funcionalidades</span>
+          </div>
+        </div>
+
+        <span class="status">
+          ● Sistema ativo
+        </span>
+      </div>
+
+      <nav class="app-header__nav">
+        <a routerLink="/form" class="chip">Formulario</a>
+        <a routerLink="/" class="chip">Inicio</a>
+      </nav>
+    </div>
+  </header>
+  <div class="pokedex-page">
+    @if (carregando()) {
+    <p class="pokedex-status">Carregando...</p>
+    } @else {
+    <div class="detalhe-card">
+      <img class="detalhe-sprite" [src]="pokemon()?.sprites?.front_default" [alt]="pokemon()?.name" />
+      <h1 class="detalhe-nome">{{ pokemon()?.name }}</h1>
+
+      <div class="detalhe-tipos">
+        @for (t of pokemon()?.types; track t.type.name) {
+        <span class="tipo-badge">{{ t.type.name }}</span>
+        }
+      </div>
+
+      <div class="detalhe-info">
+        <p>Altura: {{ pokemon()?.height }}</p>
+        <p>Peso: {{ pesoEmKg() }} kg</p>
+      </div>
+
+      <div class="navegacao">
+        <button class="seta-botao" (click)="irParaAnterior()" [disabled]="!podeVoltar()">
+          ←
+        </button>
+        <span class="navegacao__contador">#{{ idAtual() }}</span>
+        <button class="seta-botao" (click)="irParaProximo()" [disabled]="!podeAvancar()">
+          →
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+</main>
