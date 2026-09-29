@@ -1,0 +1,43 @@
+<div class="pokedex-page">
+  @if (carregando()) {
+    <p class="pokedex-status">Carregando...</p>
+  } @else {
+    <div class="detalhe-card">
+      <img
+        class="detalhe-sprite"
+        [src]="pokemon()?.sprites?.front_default"
+        [alt]="pokemon()?.name"
+      />
+      <h1 class="detalhe-nome">{{ pokemon()?.name }}</h1>
+
+      <div class="detalhe-tipos">
+        @for (t of pokemon()?.types; track t.type.name) {
+          <span class="tipo-badge">{{ t.type.name }}</span>
+        }
+      </div>
+
+      <div class="detalhe-info">
+        <p>Altura: {{ pokemon()?.height }}</p>
+        <p>Peso: {{ pesoEmKg() }} kg</p>
+      </div>
+
+      <div class="navegacao">
+        <button
+          class="seta-botao"
+          (click)="irParaAnterior()"
+          [disabled]="!podeVoltar()"
+        >
+          ←
+        </button>
+        <span class="navegacao__contador">#{{ idAtual() }}</span>
+        <button
+          class="seta-botao"
+          (click)="irParaProximo()"
+          [disabled]="!podeAvancar()"
+        >
+          →
+        </button>
+      </div>
+    </div>
+  }
+</div>

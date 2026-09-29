@@ -1,0 +1,376 @@
+<main class="page">
+    <header class="app-header">
+        <div class="app-header__inner">
+
+            <div class="app-header__top">
+                <div class="app-header__brand">
+                    <div class="app-header__logo">A</div>
+
+                    <div class="app-header__titles">
+                        <span class="app-header__eyebrow">Angular</span>
+                        <span class="app-header__title">Funcionalidades</span>
+                    </div>
+                </div>
+
+                <span class="status">
+                    ● Sistema ativo
+                </span>
+            </div>
+
+            <nav class="app-header__nav">
+                <a routerLink="/form" class="chip">Formulario</a>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="page__inner">
+
+        <!-- CABEÇALHO DO ARTIGO -->
+        <header class="article-header">
+            <div class="article-header__meta">
+                <span class="badge">ANGULAR</span>
+                <span class="dot-separator">•</span>
+                <span class="subtitle-label">PAPER TÉCNICO &amp; ESPECIFICAÇÃO</span>
+            </div>
+
+            <div class="article-header__heading">
+                <h1 class="article-title">Desenvolvimento de aplicações web com Angular</h1>
+                <p class="article-lead">
+                    Uma visão geral sobre o objetivo, funcionamento, arquitetura e principais recursos utilizados no
+                    desenvolvimento de aplicações com Angular.
+                </p>
+            </div>
+
+            <nav class="app-header__nav">
+                <a routerLink="/form" class="chip">Início</a>
+            </nav>
+
+            <div class="tags">
+                <div class="tag"><span class="tag__dot tag__dot--primary"></span>Tecnologia</div>
+                <div class="tag"><span class="tag__dot tag__dot--tertiary"></span>Desenvolvimento Web</div>
+                <div class="tag"><span class="tag__dot tag__dot--secondary"></span>TypeScript</div>
+            </div>
+
+            <div class="toc">
+                <span class="toc__title">Índice do Artigo</span>
+                <div class="toc__grid">
+                    @for (s of sections; track s.id) {
+                    <a [href]="'#' + s.id" class="toc__link">
+                        <svg class="toc__icon" aria-hidden="true">
+                            <use href="icons.svg#arrow-forward" />
+                        </svg>
+                        <span>{{ s.name }}</span>
+                    </a>
+                    }
+                </div>
+            </div>
+        </header>
+
+        <!-- SEÇÃO 01 — OBJETIVO -->
+        <section class="section" id="objetivo">
+            <div class="section__heading">
+                <span class="section__bar"></span>
+                <h2 class="section__title">01 — Objetivo</h2>
+            </div>
+
+            <div class="prose">
+                <p>
+                    O objetivo deste projeto é apresentar o Angular como uma tecnologia para desenvolvimento de
+                    aplicações web modernas, organizadas e escaláveis. A estrutura do framework permite dividir a
+                    aplicação em componentes, páginas e serviços, facilitando a manutenção e a reutilização do código.
+                </p>
+                <p>
+                    Por meio de uma arquitetura baseada em componentes e recursos integrados, o Angular permite
+                    desenvolver interfaces dinâmicas e aplicações capazes de consumir APIs, controlar rotas, trabalhar
+                    com formulários e gerenciar dados de maneira estruturada.
+                </p>
+            </div>
+
+            <div class="callout">
+                <div class="callout__accent"></div>
+                <div class="callout__body">
+                    <div class="callout__header">
+                        <svg class="callout__icon" aria-hidden="true">
+                            <use href="icons.svg#target" />
+                        </svg>
+                        <span class="callout__label">Objetivo principal</span>
+                    </div>
+                    <p class="callout__text">
+                        Desenvolver aplicações web organizadas, componentizadas e interativas utilizando Angular e
+                        TypeScript.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 02 — FUNCIONALIDADES -->
+        <section class="section" id="funcionalidades">
+            <div class="section__heading">
+                <span class="section__bar"></span>
+                <h2 class="section__title">02 — Funcionalidades</h2>
+            </div>
+
+            <p class="section__intro">
+                Visão estrutural dos módulos centrais que viabilizam a separação de responsabilidades na plataforma:
+            </p>
+
+            <div class="cards">
+                <!-- Card: Componentes (destaque) -->
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__title">{{ featureCards[0].title }}</span>
+                        <svg class="card__icon" aria-hidden="true">
+                            <use href="icons.svg#components" />
+                        </svg>
+                    </div>
+                    <p class="card__text">{{ featureCards[0].text }}</p>
+                </div>
+
+                <!-- Card: Roteamento com Terminal -->
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__title">Roteamento</span>
+                        <svg class="card__icon" aria-hidden="true">
+                            <use href="icons.svg#routing" />
+                        </svg>
+                    </div>
+                    <p class="card__text">
+                        O Angular Router permite controlar a navegação entre diferentes páginas ou componentes da
+                        aplicação sem a necessidade de recarregar toda a página.
+                    </p>
+                    <div class="terminal">
+                        <div class="terminal__label">Estrutura de Rotas</div>
+                        <pre class="terminal__pre">
+├── home
+├── sobre
+├── projetos
+└── contato</pre>
+                    </div>
+                </div>
+
+                <!-- Demais cards de funcionalidades -->
+                @for (f of featureCards.slice(1); track f.title) {
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__title">{{ f.title }}</span>
+                        <svg class="card__icon" aria-hidden="true">
+                            <use
+                                [attr.href]="'icons.svg#' + (f.icon === 'hub' ? 'services' : f.icon === 'sync_alt' ? 'api' : f.icon === 'assignment' ? 'forms' : f.icon === 'bolt' ? 'reactivity' : 'code')" />
+                        </svg>
+                    </div>
+                    <p class="card__text">{{ f.text }}</p>
+                </div>
+                }
+            </div>
+        </section>
+
+        <!-- SEÇÃO 03 — ARQUITETURA E FLUXO -->
+        <section class="section section--lg" id="arquitetura">
+            <div class="section__heading">
+                <span class="section__bar"></span>
+                <h2 class="section__title">03 — Arquitetura e Fluxo</h2>
+            </div>
+
+            <div class="diagram">
+                <span class="diagram__label">Topologia de Comunicação Arquitetural</span>
+
+                <div class="diagram__row">
+                    <div class="diagram__box">USUÁRIO</div>
+                    <svg class="diagram__arrow" aria-hidden="true">
+                        <use href="icons.svg#arrow-forward" />
+                    </svg>
+                    <div class="diagram__box">INTERFACE</div>
+                    <svg class="diagram__arrow" aria-hidden="true">
+                        <use href="icons.svg#arrow-forward" />
+                    </svg>
+                    <div class="diagram__box diagram__box--primary">COMPONENTE</div>
+                </div>
+
+                <div class="diagram__division">
+                    <div class="diagram__division-label">DIVISÃO FUNCIONAL:</div>
+                    <div class="diagram__division-content">
+                        <div class="diagram__branch diagram__branch--row" style="gap: 0.70rem;">
+                            <span class="pill pill--tertiary">SERVICE</span>
+                            <svg class="diagram__mini-arrow" aria-hidden="true">
+                                <use href="icons.svg#arrow-forward" />
+                            </svg>
+                            <span class="pill pill--surface">API / BACK-END</span>
+                            <svg class="diagram__mini-arrow" aria-hidden="true">
+                                <use href="icons.svg#arrow-forward" />
+                            </svg>
+                            <span class="pill pill--surface">DADOS</span>
+                            <svg class="diagram__mini-arrow diagram__mini-arrow--primary" aria-hidden="true">
+                                <use href="icons.svg#arrow-forward" />
+                            </svg>
+                            <span class="pill pill--surface-high">COMPONENTE</span>
+                            <svg class="diagram__mini-arrow" aria-hidden="true">
+                                <use href="icons.svg#arrow-forward" />
+                            </svg>
+                            <span class="pill pill--surface">INTERFACE</span>
+                        </div>
+                        <div class="diagram__branch diagram__branch--row diagram__branch--router">
+                            <span class="pill pill--secondary">ROUTER</span>
+                            <svg class="diagram__mini-arrow" aria-hidden="true">
+                                <use href="icons.svg#arrow-forward" />
+                            </svg>
+                            <span class="pill pill--surface">OUTRA PÁGINA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="section__paragraph">
+                Em uma aplicação Angular, o usuário interage com a interface. Os componentes recebem essas interações e
+                podem utilizar serviços para executar operações ou buscar informações em APIs. Os dados retornados são
+                processados e utilizados para atualizar a interface.
+            </p>
+
+            <!-- Arquitetura dos Arquivos -->
+            <div class="subsection">
+                <h3 class="subsection__title">
+                    <svg class="subsection__icon" aria-hidden="true">
+                        <use href="icons.svg#folder" />
+                    </svg>
+                    Arquitetura dos Arquivos
+                </h3>
+
+                <div class="file-tree">
+                    <div class="file-tree__header">
+                        <span>ÁRVORE DO PROJETO ANGULAR</span>
+                        <svg class="file-tree__icon" aria-hidden="true">
+                            <use href="icons.svg#folder" />
+                        </svg>
+                    </div>
+                    <pre class="file-tree__pre">projeto-angular/
+│
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── app.ts
+│   │   ├── app.html
+│   │   ├── app.css
+│   │   └── app.routes.ts
+│   │
+│   ├── assets/
+│   ├── main.ts
+│   └── styles.css
+│
+├── angular.json
+├── package.json
+└── tsconfig.json</pre>
+                </div>
+
+                <div class="file-list">
+                    <div class="file-list__item">
+                        <code class="file-list__code">components/</code>
+                        <span>Componentes reutilizáveis da interface.</span>
+                    </div>
+                    <div class="file-list__item">
+                        <code class="file-list__code">pages/</code>
+                        <span>Componentes utilizados como páginas da aplicação.</span>
+                    </div>
+                    <div class="file-list__item">
+                        <code class="file-list__code">services/</code>
+                        <span>Serviços responsáveis por lógica compartilhada e comunicação com APIs.</span>
+                    </div>
+                    <div class="file-list__item">
+                        <code class="file-list__code">app.routes.ts</code>
+                        <span>Configuração das rotas da aplicação.</span>
+                    </div>
+                    <div class="file-list__item">
+                        <code class="file-list__code">main.ts</code>
+                        <span>Ponto de inicialização da aplicação Angular.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fluxo de uma Funcionalidade -->
+            <div class="subsection">
+                <h3 class="subsection__title">
+                    <svg class="subsection__icon" aria-hidden="true">
+                        <use href="icons.svg#flow" />
+                    </svg>
+                    Fluxo de uma Funcionalidade
+                </h3>
+
+                <div class="flow">
+                    @for (step of flowSteps; track step; let i = $index; let last = $last) {
+                    <div class="flow__step">
+                        <span class="flow__badge" [class.flow__badge--active]="i === 0 || last">{{ i + 1 }}</span>
+                        <span class="flow__label" [class.flow__label--first]="i === 0"
+                            [class.flow__label--last]="last">{{ step }}</span>
+                    </div>
+                    @if (!last) {
+                    <div class="flow__connector"></div>
+                    }
+                    }
+                </div>
+
+                <p class="section__paragraph">
+                    Esse fluxo representa uma situação comum em aplicações Angular nas quais uma interação do usuário
+                    inicia uma operação, que pode passar por um serviço e uma API antes de atualizar os dados
+                    apresentados na interface.
+                </p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 04 — RECURSOS DA TECNOLOGIA UTILIZADOS -->
+        <section class="section" id="recursos">
+            <div class="section__heading">
+                <span class="section__bar"></span>
+                <h2 class="section__title">04 — Recursos da Tecnologia Utilizados</h2>
+            </div>
+
+            <div class="cards">
+                <!-- Angular CLI (destaque, com bloco de terminal) -->
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__title">Angular CLI</span>
+                        <span class="card__badge">Tooling</span>
+                    </div>
+                    <p class="card__text">
+                        Ferramenta utilizada para criar, configurar e gerenciar projetos Angular.
+                    </p>
+                    <div class="terminal terminal--row">
+                        <span>ng new projeto</span>
+                        <svg class="terminal__icon" aria-hidden="true">
+                            <use href="icons.svg#terminal" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Demais recursos -->
+                @for (r of resources; track r.title) {
+                <div class="card">
+                    <span class="card__title">{{ r.title }}</span>
+                    <p class="card__text">{{ r.text }}</p>
+                </div>
+                }
+            </div>
+        </section>
+
+        <!-- BLOCO FINAL DO ARTIGO -->
+        <section class="closing">
+            <div class="closing__card">
+                <div class="closing__header">
+                    <svg class="closing__icon" aria-hidden="true">
+                        <use href="icons.svg#book" />
+                    </svg>
+                    <h2 class="closing__title">Considerações finais</h2>
+                </div>
+                <p class="closing__text">
+                    Angular fornece uma estrutura organizada para o desenvolvimento de aplicações web, utilizando
+                    componentes, serviços, roteamento, templates e recursos de reatividade. Sua arquitetura permite
+                    separar responsabilidades e criar aplicações estruturadas, facilitando a manutenção e a evolução do
+                    projeto.
+                </p>
+            </div>
+
+            <div class="footer-tag">
+                <span>Angular • Desenvolvimento Web • TypeScript</span>
+            </div>
+        </section>
+    </div>
+</main>

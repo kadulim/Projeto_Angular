@@ -1,0 +1,476 @@
+<main class="page" id="inicio">
+
+    <header class="app-header">
+  <div class="app-header__inner">
+
+    <div class="app-header__top">
+      <div class="app-header__brand">
+        <div class="app-header__logo">A</div>
+
+        <div class="app-header__titles">
+          <span class="app-header__eyebrow">Angular</span>
+          <span class="app-header__title">Funcionalidades</span>
+        </div>
+      </div>
+
+      <span class="status">
+        ● Sistema ativo
+      </span>
+    </div>
+
+    <nav class="app-header__nav">
+      <a href="#inicio" class="chip">Início</a>
+    </nav>
+  </div>
+</header>
+
+  <div class="page__inner">
+
+    <!-- CABEÇALHO -->
+    <section class="article-header">
+
+      <div class="article-header__meta">
+        <span class="badge">ANGULAR</span>
+        <span class="dot-separator">•</span>
+        <span class="subtitle-label">Aplicação Web</span>
+      </div>
+
+      <div class="article-header__heading">
+        <h1 class="article-title">
+          Painel de Funcionalidades Backend
+        </h1>
+
+        <p class="article-lead">
+          Uma aplicação simples em Angular para demonstrar formulários,
+          componentes, eventos e gerenciamento de dados.
+        </p>
+      </div>
+
+      <div class="tags">
+        <span class="tag">
+          <span class="tag__dot tag__dot--primary"></span>
+          Angular
+        </span>
+
+        <span class="tag">
+          <span class="tag__dot tag__dot--tertiary"></span>
+          TypeScript
+        </span>
+
+        <span class="tag">
+          <span class="tag__dot tag__dot--secondary"></span>
+          Forms
+        </span>
+      </div>
+
+    </section>
+
+
+    <!-- FUNCIONALIDADES -->
+    <section class="section" id="funcionalidades">
+
+      <div class="section__heading">
+        <span class="section__bar"></span>
+        <h2 class="section__title">
+          Funcionalidades
+        </h2>
+      </div>
+
+      <p class="section__intro">
+        Alguns recursos básicos utilizados nesta aplicação Angular.
+      </p>
+
+
+      <div class="cards">
+
+        <article class="card">
+
+          <div class="card__header">
+            <span class="card__title">
+              Formulários
+            </span>
+
+            <span class="card__badge">
+              Forms
+            </span>
+          </div>
+
+          <p class="card__text">
+            Permite inserir informações através de campos de formulário
+            e realizar o cadastro de novos usuários.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="card__header">
+            <span class="card__title">
+              Componentes
+            </span>
+
+            <span class="card__badge">
+              Angular
+            </span>
+          </div>
+
+          <p class="card__text">
+            A interface é construída utilizando componentes e
+            propriedades controladas pelo TypeScript.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="card__header">
+            <span class="card__title">
+              Gerenciamento
+            </span>
+
+            <span class="card__badge">
+              CRUD
+            </span>
+          </div>
+
+          <p class="card__text">
+            Os usuários cadastrados podem ser visualizados e removidos
+            diretamente pela interface.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- FORMULÁRIO -->
+    <section class="section" id="cadastro">
+
+      <div class="section__heading">
+        <span class="section__bar"></span>
+
+        <h2 class="section__title">
+          Cadastro de usuário
+        </h2>
+      </div>
+
+      <p class="section__intro">
+        Preencha os campos abaixo para adicionar um novo usuário.
+      </p>
+
+
+      <form
+        class="form-card"
+        (submit)="cadastrarUsuario($event)"
+      >
+
+        <div class="form-group">
+
+          <label for="nome">
+            Nome
+          </label>
+
+          <input
+            id="nome"
+            type="text"
+            placeholder="Digite seu nome"
+            [value]="nome"
+            (input)="nome = $any($event.target).value"
+            name="nome"
+          />
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="email">
+            E-mail
+          </label>
+
+          <input
+            id="email"
+            type="email"
+            placeholder="Digite seu e-mail"
+            {value]="email"
+            (input)="email = $any($event.target).value"}
+            name="email"
+          />
+
+        </div>
+
+
+        <div class="form-actions">
+
+          <button
+            type="submit"
+            class="button button--primary"
+          >
+            Cadastrar
+          </button>
+
+          <button
+            type="button"
+            class="button button--secondary"
+            (click)="limparFormulario()"
+          >
+            Limpar
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+
+    <!-- MENSAGEM -->
+    @if (mensagem) {
+
+      <div class="callout">
+
+        <div class="callout__accent"></div>
+
+        <div class="callout__body">
+
+          <div class="callout__header">
+
+            <span class="callout__label">
+              Sistema
+            </span>
+
+          </div>
+
+          <p class="callout__text">
+            {{ mensagem }}
+          </p>
+
+        </div>
+
+      </div>
+
+    }
+
+
+    <!-- USUÁRIOS -->
+    <section class="section" id="usuarios">
+
+      <div class="section__heading">
+
+        <span class="section__bar"></span>
+
+        <h2 class="section__title">
+          Usuários cadastrados
+        </h2>
+
+      </div>
+
+
+      <div class="users-header">
+
+        <span>
+          Total de usuários
+        </span>
+
+        <strong>
+          {{ usuarios.length }}
+        </strong>
+
+      </div>
+
+
+      @if (usuarios.length === 0) {
+
+        <div class="empty-card">
+
+          <span class="empty-card__icon">
+            +
+          </span>
+
+          <h3>
+            Nenhum usuário cadastrado
+          </h3>
+
+          <p>
+            Utilize o formulário acima para cadastrar o primeiro usuário.
+          </p>
+
+        </div>
+
+      }
+
+
+      @if (usuarios.length > 0) {
+
+        <div class="users-grid">
+
+          @for (usuario of usuarios; track usuario.id) {
+
+            <article class="user-card">
+
+              <div class="user-card__top">
+
+                <div class="avatar">
+                  {{ obterInicial(usuario.nome) }}
+                </div>
+
+                <span class="user-card__id">
+                  #{{ usuario.id }}
+                </span>
+
+              </div>
+
+
+              <div class="user-card__content">
+
+                <h3>
+                  {{ usuario.nome }}
+                </h3>
+
+                <p>
+                  {{ usuario.email }}
+                </p>
+
+              </div>
+
+
+              <button
+                type="button"
+                class="button button--danger"
+                (click)="excluirUsuario(usuario.id)"
+              >
+                Excluir
+              </button>
+
+            </article>
+
+          }
+
+        </div>
+
+      }
+
+    </section>
+
+
+    <!-- FLUXO -->
+    <section class="section">
+
+      <div class="section__heading">
+
+        <span class="section__bar"></span>
+
+        <h2 class="section__title">
+          Fluxo da aplicação
+        </h2>
+
+      </div>
+
+
+      <div class="flow">
+
+        <div class="flow__step">
+
+          <span class="flow__badge flow__badge--active">
+            1
+          </span>
+
+          <span class="flow__label flow__label--first">
+            Usuário preenche o formulário
+          </span>
+
+        </div>
+
+
+        <div class="flow__connector"></div>
+
+
+        <div class="flow__step">
+
+          <span class="flow__badge">
+            2
+          </span>
+
+          <span class="flow__label">
+            Angular captura os dados
+          </span>
+
+        </div>
+
+
+        <div class="flow__connector"></div>
+
+
+        <div class="flow__step">
+
+          <span class="flow__badge">
+            3
+          </span>
+
+          <span class="flow__label">
+            TypeScript processa o cadastro
+          </span>
+
+        </div>
+
+
+        <div class="flow__connector"></div>
+
+
+        <div class="flow__step">
+
+          <span class="flow__badge flow__badge--active">
+            4
+          </span>
+
+          <span class="flow__label flow__label--last">
+            Usuário aparece na lista
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+    <footer class="closing">
+
+      <div class="closing__card">
+
+        <div class="closing__header">
+
+          <span class="closing__icon">
+            ◆
+          </span>
+
+          <h2 class="closing__title">
+            Angular Backend
+          </h2>
+
+        </div>
+
+        <p class="closing__text">
+          Projeto desenvolvido para demonstrar funcionalidades
+          básicas de uma aplicação Angular utilizando TypeScript,
+          formulários e gerenciamento de dados.
+        </p>
+
+      </div>
+
+      <div class="footer-tag">
+        <span>
+          Angular • TypeScript • Forms • Components
+        </span>
+      </div>
+
+    </footer>
+
+  </div>
+
+</main>
