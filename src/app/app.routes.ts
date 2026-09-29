@@ -12,13 +12,10 @@ export const routes: Routes = [
         path: 'form',
         component: Form,
     },
-    {
-        path: 'pokedex',
-        redirectTo: 'pokedex/1',
-        pathMatch: 'full'
+    { path: 'pokedex', redirectTo: 'pokedex/1', pathMatch: 'full' },
+
+    { 
+        path: 'pokedex/:id', 
+        component: Pokedex 
     },
-    {
-        path: 'pokedex/:id',
-        component: Pokedex
-    }
 ];
