@@ -159,9 +159,9 @@ Projeto_Angular/
 │   │   ├── app.html
 │   │   ├── app.routes.ts
 │   │   ├── app.spec.ts
-│   │   ├──app.ts
-│   │   ├──
-│   │   └──
+│   │   ├── app.ts
+│   │   ├── pokemon.model.ts
+│   │   └── pokemon.ts
 │   ├── index.html
 │   ├── main.ts
 │   └── styles.css
